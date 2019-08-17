@@ -1,0 +1,58 @@
+﻿@model Impacta.MOD.TarefaMOD
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>EXCLUSÃO DE TAREFA</h2>
+
+<h3>Você esta deseja realmente excluir o registro?</h3>
+<div>
+    <h4>TAREFA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prioridade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prioridade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Concluida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Concluida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacoes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+
+            @Html.ActionLink("Voltar para Lista", "ListarNovasTarefas",
+                            new { }, new { @class= "btn btn-info" })
+        </div>
+    }
+</div>
