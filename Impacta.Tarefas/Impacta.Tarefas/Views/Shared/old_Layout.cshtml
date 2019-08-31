@@ -49,27 +49,16 @@
                 </li>
 
                 <li class="nav-item">
-                    @if (User.Identity.IsAuthenticated)
+                    @if ((Impacta.MOD.Usuario)HttpContext.Current.Session["Usuario"] != null)
                     {
-                        @Html.ActionLink("OLÁ " + User.Identity.Name.ToString().ToUpper() +
-                                "[CLIQUE AQUI p/ LOGOUT]", "Logout", "Login", new { }, new { @class = "nav-link dropdown-toggle" })
-
+                        @Html.ActionLink("OLÁ " + ((HttpContext.Current.Session["Usuario"] as Impacta.MOD.Usuario).Username.ToUpper()) + 
+                                "[CLIQUE AQUI p/ LOGOUT]", "Sair", "Autenticador", new { }, new { @class = "nav-link dropdown-toggle" })
+                         
                     }
                     else
                     {
                         @Html.ActionLink("LOGIN", "Entrar", "Autenticador", new { }, new { @class = "nav-link dropdown-toggle" })
                     }
-
-                    @*@if (User.Identity.IsAuthenticated)
-        {
-            @Html.ActionLink("OLÁ " + User.Identity.Name.ToString().ToUpper() +
-                    "[CLIQUE AQUI p/ LOGOUT]", "Sair", "Autenticador", new { }, new { @class = "nav-link dropdown-toggle" })
-
-        }
-        else
-        {
-            @Html.ActionLink("LOGIN", "Entrar", "Autenticador", new { }, new { @class = "nav-link dropdown-toggle" })
-        }*@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

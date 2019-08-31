@@ -42,7 +42,7 @@ namespace Impacta.Tarefas.Controllers
 			return View(editora);
 		}
 		 
-
+		[Authorize]
 		// GET: RealBooks/Create
 		public ActionResult Create()
 		{
@@ -50,6 +50,7 @@ namespace Impacta.Tarefas.Controllers
 			return View();
 		}
 
+		[Authorize]
 		// POST: RealBooks/Create
 		[HttpPost]
 		public ActionResult Create(Editora collection)
@@ -118,6 +119,8 @@ namespace Impacta.Tarefas.Controllers
 			}
 		}
 
+
+		[Authorize]
 		// GET: RealBooks/Delete/5
 		public ActionResult Delete(int id)
 		{
